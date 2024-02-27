@@ -7,20 +7,17 @@
     </tr>
     {% for tasks in task %}
     <tr>
-        <td>
-            {{ tasks.title }}
-        </td>
-        <td>
-            <a href="{% url 'tasks-detail' tasks.id %}">Task View</a>
-        </td>        
+        <td>{{ tasks.title }}</td>
+        <td><a href="{% url 'tasks-detail' tasks.id %}">Task View</a></td> 
+        <td><a href="{% url 'task-create' %}">Add</a></td>   
+        <td><a href="{% url 'tasks-update' pk=tasks.id %}">Update</a></td>        
     </tr>
     {% empty %}
     <tr>
         <td>
             <h3>No items in the List</h3>
-            <a href="">Add New Item</a>
+            <a href="{% url 'task-create' %}">Add New Item</a>
         </td>
     </tr>
     {% endfor %}
 </table>
-
